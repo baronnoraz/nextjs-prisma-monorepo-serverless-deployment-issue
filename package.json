@@ -1,0 +1,16 @@
+{
+  "name": "@example/monorepo",
+  "version": "1.0.0",
+  "description": "A minimal repo demonstrating a serverless deployment issue in a NextJS + Prisma monorepo.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baronnoraz/nextjs-prisma-monorepo-serverless-deployment-issue.git"
+  },
+  "workspaces": [
+    "apps/client",
+    "db/prisma"
+  ]
+}
