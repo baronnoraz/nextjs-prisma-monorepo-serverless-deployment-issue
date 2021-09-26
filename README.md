@@ -85,3 +85,191 @@ Generate the Prisma schema and binary, then deploy the app using serverless.
 npx -w db/prisma prisma generate
 npx -w apps/client serverless
 ```
+
+# Serverless Deployment Error
+```shell
+  error:
+  Error: Command failed with exit code 1: ../../node_modules/.bin/next build
+(node:29546) [DEP_WEBPACK_CHUNK_HAS_ENTRY_MODULE] DeprecationWarning: Chunk.hasEntryModule: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warn  - Compiled with warnings
+
+../../node_modules/next/dist/server/load-components.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/load-components.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/load-components.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/require.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/require.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/require.js
+Critical dependency: the request of a dependency is an expression
+
+
+> Build error occurred
+Error: ENOENT: no such file or directory, open '/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/schema.prisma'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at new LibraryEngine (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:25128:42)
+    at PrismaClient.getEngine (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:37747:16)
+    at new PrismaClient (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:37716:29)
+    at Module.1074 (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:26:16)
+    at __webpack_require__ (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:465:43)
+    at Module.4263 (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:154:23)
+    at __webpack_require__ (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:465:43)
+    at /Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:485:96 {
+  type: 'Error',
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/schema.prisma',
+  clientVersion: '3.1.1'
+}
+info  - Loaded env from /Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.env
+info  - Using webpack 5. Reason: Enabled by default https://nextjs.org/docs/messages/webpack5
+info  - Checking validity of types...
+info  - Creating an optimized production build...
+info  - Collecting page data...
+    at makeError (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/node_modules/execa/lib/error.js:60:11)
+    at handlePromise (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/node_modules/execa/index.js:118:26)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async Builder.build (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/node_modules/@sls-next/lambda-at-edge/dist/build.js:362:13) {
+  shortMessage: 'Command failed with exit code 1: ../../node_modules/.bin/next build',
+  command: '../../node_modules/.bin/next build',
+  escapedCommand: '"../../node_modules/.bin/next" build',
+  exitCode: 1,
+  signal: undefined,
+  signalDescription: undefined,
+  stdout: 'info  - Loaded env from /Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.env\n' +
+    'info  - Using webpack 5. Reason: Enabled by default https://nextjs.org/docs/messages/webpack5\n' +
+    'info  - Checking validity of types...\n' +
+    'info  - Creating an optimized production build...\n' +
+    'info  - Collecting page data...',
+  stderr: '(node:29546) [DEP_WEBPACK_CHUNK_HAS_ENTRY_MODULE] DeprecationWarning: Chunk.hasEntryModule: Use new ChunkGraph API\n' +
+    '(Use `node --trace-deprecation ...` to show where the warning was created)\n' +
+    'warn  - Compiled with warnings\n' +
+    '\n' +
+    '../../node_modules/next/dist/server/load-components.js\n' +
+    'Critical dependency: the request of a dependency is an expression\n' +
+    '\n' +
+    '../../node_modules/next/dist/server/load-components.js\n' +
+    'Critical dependency: the request of a dependency is an expression\n' +
+    '\n' +
+    '../../node_modules/next/dist/server/load-components.js\n' +
+    'Critical dependency: the request of a dependency is an expression\n' +
+    '\n' +
+    '../../node_modules/next/dist/server/require.js\n' +
+    'Critical dependency: the request of a dependency is an expression\n' +
+    '\n' +
+    '../../node_modules/next/dist/server/require.js\n' +
+    'Critical dependency: the request of a dependency is an expression\n' +
+    '\n' +
+    '../../node_modules/next/dist/server/require.js\n' +
+    'Critical dependency: the request of a dependency is an expression\n' +
+    '\n' +
+    '\n' +
+    '> Build error occurred\n' +
+    "Error: ENOENT: no such file or directory, open '/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/schema.prisma'\n" +
+    '    at Object.openSync (fs.js:498:3)\n' +
+    '    at Object.readFileSync (fs.js:394:35)\n' +
+    '    at new LibraryEngine (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:25128:42)\n' +
+    '    at PrismaClient.getEngine (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:37747:16)\n' +
+    '    at new PrismaClient (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:37716:29)\n' +
+    '    at Module.1074 (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:26:16)\n' +
+    '    at __webpack_require__ (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:465:43)\n' +
+    '    at Module.4263 (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:154:23)\n' +
+    '    at __webpack_require__ (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:465:43)\n' +
+    '    at /Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:485:96 {\n' +
+    "  type: 'Error',\n" +
+    '  errno: -2,\n' +
+    "  syscall: 'open',\n" +
+    "  code: 'ENOENT',\n" +
+    "  path: '/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/schema.prisma',\n" +
+    "  clientVersion: '3.1.1'\n" +
+    '}',
+  failed: true,
+  timedOut: false,
+  isCanceled: false,
+  killed: false
+}
+
+  17s › exampleApp › Error: Command failed with exit code 1: ../../node_modules/.bin/next build
+(node:29546) [DEP_WEBPACK_CHUNK_HAS_ENTRY_MODULE] DeprecationWarning: Chunk.hasEntryModule: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warn  - Compiled with warnings
+
+../../node_modules/next/dist/server/load-components.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/load-components.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/load-components.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/require.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/require.js
+Critical dependency: the request of a dependency is an expression
+
+../../node_modules/next/dist/server/require.js
+Critical dependency: the request of a dependency is an expression
+
+
+> Build error occurred
+Error: ENOENT: no such file or directory, open '/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/schema.prisma'
+    at Object.openSync (fs.js:498:3)
+    at Object.readFileSync (fs.js:394:35)
+    at new LibraryEngine (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:25128:42)
+    at PrismaClient.getEngine (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:37747:16)
+    at new PrismaClient (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/569.js:37716:29)
+    at Module.1074 (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:26:16)
+    at __webpack_require__ (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:465:43)
+    at Module.4263 (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:154:23)
+    at __webpack_require__ (/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:465:43)
+    at /Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/pages/index.js:485:96 {
+  type: 'Error',
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.next/serverless/chunks/schema.prisma',
+  clientVersion: '3.1.1'
+}
+info  - Loaded env from /Users/nbuckner/git/nextjs-prisma-monorepo-serverless-deployment-issue/apps/client/.env
+info  - Using webpack 5. Reason: Enabled by default https://nextjs.org/docs/messages/webpack5
+info  - Checking validity of types...
+info  - Creating an optimized production build...
+info  - Collecting page data...
+```
+
+Previously, the following `postBuildCommands` would copy `schema.prisma` and the query engine (`query-engine-rhel-*`) to the 
+appropriate location in the deployment folders.  But with the newer versions, I know how to hook into the build in a way that
+allows me to copy the files to the location that the Prisma Client is expecting.
+
+```yaml
+postBuildCommands:
+  - PDIR=../../node_modules/.prisma/client/;
+    LDIR=.serverless_nextjs/api-lambda/;
+    TDIR="$LDIR"chunks/;
+    if [ "$(ls -A $LDIR)" ]; then
+    mkdir -p $TDIR;
+    cp "$PDIR"query-engine-rhel-* $TDIR;
+    cp "$PDIR"schema.prisma $TDIR;
+    fi;
+  - PDIR=../../node_modules/.prisma/client/;
+    LDIR=.serverless_nextjs/default-lambda/;
+    TDIR="$LDIR"chunks/;
+    if [ "$(ls -A $LDIR)" ]; then
+    mkdir -p $TDIR;
+    cp "$PDIR"query-engine-rhel-* $TDIR;
+    cp "$PDIR"schema.prisma $TDIR;
+    fi;
+```
