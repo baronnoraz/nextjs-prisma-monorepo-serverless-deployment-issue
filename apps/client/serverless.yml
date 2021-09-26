@@ -1,0 +1,40 @@
+
+exampleApp:
+  component: '../../node_modules/@sls-next/serverless-component'
+  provider:
+    name: 'aws'
+    runtime: 'nodejs14.x'
+    region: 'us-east-1'
+    stackName: 'example-stack'
+  inputs:
+    domain: ['example','eah-onecow.com']
+    bucketName: 'example-deployments'
+    bucketRegion: 'us-east-1'
+    enableS3Acceleration: false
+    name:
+      apiLambda: 'example-api-lambda'
+      defaultLambda: 'example-default-lambda'
+      imageLambda: 'example-image-lambda'
+    runtime:
+      apiLambda: 'nodejs14.x'
+      defaultLambda: 'nodejs14.x'
+      imageLambda: 'nodejs14.x'
+    build:
+      cmd: '../../node_modules/.bin/next'
+#      postBuildCommands:
+#        - PDIR=../../node_modules/.prisma/client/;
+#          LDIR=.serverless_nextjs/api-lambda/;
+#          TDIR="$LDIR"chunks/;
+#          if [ "$(ls -A $LDIR)" ]; then
+#          mkdir -p $TDIR;
+#          cp "$PDIR"query-engine-rhel-* $TDIR;
+#          cp "$PDIR"schema.prisma $TDIR;
+#          fi;
+#        - PDIR=../../node_modules/.prisma/client/;
+#          LDIR=.serverless_nextjs/default-lambda/;
+#          TDIR="$LDIR"chunks/;
+#          if [ "$(ls -A $LDIR)" ]; then
+#          mkdir -p $TDIR;
+#          cp "$PDIR"query-engine-rhel-* $TDIR;
+#          cp "$PDIR"schema.prisma $TDIR;
+#          fi;

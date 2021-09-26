@@ -55,3 +55,33 @@ After generating the `schema.prisma` file, you can run the client app using
 npm -w apps/client run dev
 ```
 
+# Serverless
+
+Before deploying to AWS, you must configure your credentials.
+
+```dotenv
+# example/apps/client/.env
+
+# serverless-deployer
+AWS_ACCESS_KEY_ID = <YOUR_ACCESS_KEY_ID>
+AWS_SECRET_ACCESS_KEY = <YOUR_SECRET_ACCESS_KEY>
+
+# Amazon
+# Add your AWS configuration here
+DATABASE_URL = mysql://user:password@domain:port/db
+```
+
+```dotenv
+# example/db/prisma/.env
+
+# Amazon
+# Add your AWS configuration here
+DATABASE_URL = mysql://user:password@domain:port/db
+```
+
+Generate the Prisma schema and binary, then deploy the app using serverless.
+```shell
+# ~/git/example
+npx -w db/prisma prisma generate
+npx -w apps/client serverless
+```
