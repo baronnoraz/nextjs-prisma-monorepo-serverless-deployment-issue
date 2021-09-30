@@ -21,20 +21,3 @@ exampleApp:
       imageLambda: 'nodejs14.x'
     build:
       cmd: '../../node_modules/.bin/next'
-#      postBuildCommands:
-#        - PDIR=../../node_modules/.prisma/client/;
-#          LDIR=.serverless_nextjs/api-lambda/;
-#          TDIR="$LDIR"chunks/;
-#          if [ "$(ls -A $LDIR)" ]; then
-#          mkdir -p $TDIR;
-#          cp "$PDIR"query-engine-rhel-* $TDIR;
-#          cp "$PDIR"schema.prisma $TDIR;
-#          fi;
-#        - PDIR=../../node_modules/.prisma/client/;
-#          LDIR=.serverless_nextjs/default-lambda/;
-#          TDIR="$LDIR"chunks/;
-#          if [ "$(ls -A $LDIR)" ]; then
-#          mkdir -p $TDIR;
-#          cp "$PDIR"query-engine-rhel-* $TDIR;
-#          cp "$PDIR"schema.prisma $TDIR;
-#          fi;
